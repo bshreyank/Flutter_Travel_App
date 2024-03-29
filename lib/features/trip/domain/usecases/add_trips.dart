@@ -1,12 +1,12 @@
 import 'package:flutter_travel_app/features/trip/domain/entities/trip.dart';
 import 'package:flutter_travel_app/features/trip/domain/repositories/trip_repository.dart';
 
-class GetTrips {
+class AddTrip {
   final TripRepository repository;
 
-  GetTrips(this.repository);
+  AddTrip(this.repository);
 
-  Future<Trip> call() {
-    return repository.getTrips();
+  Future<void> call(Trip trip) {
+    return repository.addTrips(trip);
   }
 }

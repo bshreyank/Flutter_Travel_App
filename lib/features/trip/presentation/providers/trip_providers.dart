@@ -21,7 +21,7 @@ final tripRepositoryProvider = Provider<TripRepository>((ref) {
   return TripRepositoryImpl(localDataSource);
 });
 
-//Define all three CRUD functions -------------------------------------------->
+//Define all CRUD functions -------------------------------------------->
 final addTripProvider = Provider<AddTrip>((ref) {
   final repository = ref.read(tripRepositoryProvider);
   return AddTrip(repository);

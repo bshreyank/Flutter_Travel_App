@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_travel_app/features/trip/data/models/trip_model.dart';
 import 'package:flutter_travel_app/features/trip/presentation/pages/main_screen.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -16,7 +16,9 @@ Future<void> main() async {
 
   // Initialize hive and open our box.
   await Hive.openBox<TripModel>('trips');
-  runApp(const MainApp());
+
+  //main widget
+  runApp(const ProviderScope(child: MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -24,7 +26,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Travel App',
       home: MainScreen(),
     );
